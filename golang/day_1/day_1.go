@@ -161,8 +161,6 @@ func part2(lines []string) int {
 			first = firstNumber
 		}
 
-		if lastNumber > -1 {
-		}
 		// this will never fail but i like to check anyway
 		if lastDigitIndex >= lastNumberIndex {
 			last = lastDigit
@@ -178,7 +176,7 @@ func part2(lines []string) int {
 
 func main() {
 
-	data, err := os.ReadFile("./input.txt")
+	data, err := os.ReadFile("day_1/input.txt")
 	if err != nil {
 		panic(err)
 	}
