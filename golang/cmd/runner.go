@@ -103,7 +103,7 @@ func do_execute(day string) {
 	if err != nil {
 		fmt.Printf("Error running command: %v\n", err)
 		// Print stderr output
-		fmt.Printf("Command stderr: %s\n", output)
+		fmt.Printf("Command stderr: \n%s\n", output)
 		// Print exit status
 		if exitErr, ok := err.(*exec.ExitError); ok {
 			fmt.Printf("Exit status: %d\n", exitErr.ExitCode())
@@ -112,17 +112,20 @@ func do_execute(day string) {
 	}
 
 	// Print stdout output
-	fmt.Printf("Command output: \n%s\n", output)
+	fmt.Printf("%s", output)
 }
 
 func main() {
 	osArgs := os.Args[1:]
 
-	fmt.Printf("%v\n", osArgs)
 	for _, arg := range osArgs {
 		switch {
 		case strings.HasPrefix(arg, "--day="):
 			day := arg[len("--day="):]
+
+			if day == "" {
+				log.Fatal("You need to pass in a day flag, --day=N")
+			}
 
 			if _, err := os.Stat(fmt.Sprintf("day_%v", day)); os.IsNotExist(err) {
 				do_setup(day)
