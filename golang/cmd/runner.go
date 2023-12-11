@@ -70,11 +70,15 @@ import (
 )
 
 func part1(lines []string) int {
-	return 0
+	result := 0
+
+	return result
 }
 
 func part2(lines []string) int {
-	return 0
+	result := 0
+
+	return result
 }
 
 func main() {
@@ -102,16 +106,13 @@ func do_execute(day string) {
 
 	if err != nil {
 		fmt.Printf("Error running command: %v\n", err)
-		// Print stderr output
 		fmt.Printf("Command stderr: \n%s\n", output)
-		// Print exit status
 		if exitErr, ok := err.(*exec.ExitError); ok {
 			fmt.Printf("Exit status: %d\n", exitErr.ExitCode())
 		}
 		os.Exit(1)
 	}
 
-	// Print stdout output
 	fmt.Printf("%s", output)
 }
 
