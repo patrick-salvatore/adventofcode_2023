@@ -87,7 +87,7 @@ func main() {
 		panic(err)
 	}
 
-	lines := strings.Split(strings.Trim(string(data), "\n"), "\n")
+	lines := strings.Split(string(data), "\n")
 
 	fmt.Printf("Result for part1: %s\n", part1(lines))
 	fmt.Printf("Result for part2: %s\n", part2(lines))
